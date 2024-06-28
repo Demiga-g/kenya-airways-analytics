@@ -3,3 +3,4 @@ nohup.out
 .idea/
 .ipynb_checkpoints
 *.iml
+test.py
