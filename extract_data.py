@@ -12,16 +12,17 @@ def get_soup(page_count=1, page_size=20):
     response = requests.get(url, headers)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'lxml')
-        return soup
+        cleaned_soup = soup.find_all("article", itemprop="review")
+        return cleaned_soup
     else:
         print("Error in getting soup")
 
 
-def extract_raw_data(soup):
+def extract_raw_data(cleaned_soup):
     # extract the data from the soup
-    articles = soup.find_all("article", itemprop="review")
+    # articles = soup.find_all("article", itemprop="review")
 
-    for article in articles:
+    for article in cleaned_soup:
 
         ######## DATA OUTSIDE TABLE ########
 
@@ -41,7 +42,8 @@ def extract_raw_data(soup):
         # is trip verified or not?
         try:
             trip_verification = article.find("div", class_="text_content", itemprop="reviewBody")
-            trip_verification = re.search(r'(Trip Verified|Not Verified)', trip_verification.text).group(1)
+            string_pattern = r'(Trip Verified|Not Verified|Verified Review)'
+            trip_verification = re.search(string_pattern, trip_verification.text).group(1)
         except AttributeError:
             trip_verification = 'NA'
 
@@ -55,7 +57,9 @@ def extract_raw_data(soup):
         # passenger's trip review
         try:
             review = article.find("div", class_="text_content", itemprop="reviewBody").text
-            review = review.split('|', 1)[1].strip()
+            if review != 'NA':
+                review_parts = review.split('|', 1)
+                review = review_parts[1].strip() if len(review_parts) > 1 else review_parts
         except AttributeError:
             review = 'NA'
 
@@ -119,14 +123,21 @@ def extract_raw_data(soup):
     return data_list
 
 
-if __name__ == "__main__":
-    raw_data = get_soup()
-
-    for page_count in range(1, 2):
-        print(f'Scraping from page {page_count}')
+def scrape_data():
+    page_number = 1
+    while True:
+        print(f'Scraping from page {page_number}')
+        raw_data = get_soup(page_count=page_number, page_size=200)
+        if len(raw_data) == 0:
+            print("No more pages to scrap")
+            break
         extract_raw_data(raw_data)
-        # time.sleep(4)
+        time.sleep(5)
+        page_number += 1
 
     df = pd.DataFrame(data_list)
-    print(df)
-    df.to_csv("kenya_airways.csv", index=False)
+    print(df.shape)
+    return df.to_csv("kenya_airways.csv", index=False)
+
+if __name__ == "__main__":
+    scrape_data()
