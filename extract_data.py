@@ -25,10 +25,14 @@ input_sleep_time = args.input_sleep_time
 
 
 data_list = []
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+base_url ="https://www.airlinequality.com/airline-reviews"
+
+
 def get_soup(page_count, page_size=20):
     headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
-    url = f"https://www.airlinequality.com/airline-reviews/{input_airline}/page/{page_count}/?sortby=post_date%3ADesc&pagesize={page_size}"
+        "User-Agent": user_agent}
+    url = f"{base_url}/{input_airline}/page/{page_count}/?sortby=post_date%3ADesc&pagesize={page_size}"
     response = requests.get(url, headers)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'lxml')
