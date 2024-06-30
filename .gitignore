@@ -1,6 +1,7 @@
 *.csv
 nohup.out
 .idea/
+data/
 .ipynb_checkpoints
 *.iml
 test.py
