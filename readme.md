@@ -1,7 +1,7 @@
 # Analyzing Passenger Reviews for Kenya Airways (KQ)
 
 This is a web scrapping and data analytics project which provides an analysis of passenger reviews of the KQ airlines.
-I have written an article about the same.
+I have written an [article](https://medium.com/@midegageorge2/is-kenya-airways-really-the-pride-of-africa-022f868c804a) about the same.
 
 ## Project's Files
 
