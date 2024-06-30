@@ -18,7 +18,7 @@ I have written an article about the same.
 
 Here is the workflow of the project
 
-<img src="images/web%20scrapping%20workflow%20nobg.png">
+<img src="images/web%20scrapping%20workflow.png">
 
 For project reproducibility, you can run the following commands:
 
