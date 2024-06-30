@@ -16,6 +16,10 @@ I have written an article about the same.
 - A virtual environment
 - Relevant packages
 
+Here is the workflow of the project
+
+<img src="images/web%20scrapping%20workflow%20nobg.png">
+
 For project reproducibility, you can run the following commands:
 
 1. Clone this repository to your preferred folder
@@ -53,6 +57,8 @@ What these commands do is:
 - Runs the Python script with the name of the airline provided as indicated in the Skytrax website. Most of the time it will have a hyphen in between.
 - Retrieve 200 reviews from a page then waits for three second before going to the next page.
 - Stores the data in the `data` folder as a `.csv` file. Remember to append the `.csv` at the end of the name of the file.
+
+Note: You may have to change the user agent accordingly.
 
 5. (Optional) Visualization in Microsoft PowerBI
 
