@@ -70,6 +70,10 @@ For this step, you can use your preferred visualization tool. However, should yo
 - Replacing error values with `null`
 - Creating calculated measures where necessary.
 
+The final visualization looks something like this:
+
+![image](images/overview%20dashboard.png)
+
 
 
 
