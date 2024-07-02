@@ -161,8 +161,7 @@ def scrape_data():
 
     df = pd.DataFrame(data_list)
     print(df.shape)
-    return df.to_csv(output_data, index=False)
-
+    return df.to_csv(output_data)
 
 if __name__ == "__main__":
     scrape_data()
