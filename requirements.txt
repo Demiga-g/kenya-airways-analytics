@@ -4,3 +4,10 @@ beautifulsoup4
 numpy
 lxml
 ipykernel
+
+# optional libraries for sentiment analysis
+# they are used in the notebook so I'd advice that
+# you run the notebook in Google Colab
+# transformers
+# scipy
+# torch
