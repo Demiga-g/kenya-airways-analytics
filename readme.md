@@ -2,6 +2,9 @@
 
 This is a web scrapping and data analytics project which provides an analysis of passenger reviews of the KQ airlines.
 I have written an [article](https://medium.com/@midegageorge2/is-kenya-airways-really-the-pride-of-africa-022f868c804a) about the same.
+Here is the snippet of the dashboard created in Power BI
+
+![kq-ratings-reviews](https://github.com/user-attachments/assets/74b1b45d-810e-4a63-9ee9-0b9c269e06d0)
 
 ## Project's Files
 
@@ -13,12 +16,12 @@ I have written an [article](https://medium.com/@midegageorge2/is-kenya-airways-r
 ## Project's Requirements
 
 - Python version 3.10.4
-- A virtual environment
+- A virtual environment (optional but advisable)
 - Relevant packages
 
 Here is the workflow of the project
 
-<img src="images/web%20scrapping%20workflow.png">
+![kq-review-scrapping](https://github.com/user-attachments/assets/1fe1cf55-53d3-44b7-ade0-a902cb63ee24)
 
 For project reproducibility, you can run the following commands:
 
@@ -69,12 +72,4 @@ For this step, you can use your preferred visualization tool. However, should yo
 - Renaming the columns
 - Replacing error values with `null`
 - Creating calculated measures where necessary.
-
-The final visualization looks something like this:
-
-![image](images/overview%20dashboard.png)
-
-
-
-
-
+  
